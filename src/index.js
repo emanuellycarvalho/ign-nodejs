@@ -57,7 +57,21 @@ app.use(verifyIfAccountExistsByCPF);
 
 app.get("/statement", (request, response) => {
     const { customer } = request;
+
     return response.json(customer.statement);
+});
+
+app.get("/statement/:date", (request, response) => {
+    const { date } = request.query;
+    const { customer } = request;
+
+    const formattedDate = new Date(date + " 00:00");
+
+    const statement = customer.statement.filter(
+        (statement) => statemen.created_at.toDateString() == new Date(formattedDate).toDateString()
+    );
+
+    return response.json(statement);
 });
 
 app.post("/deposit", (request, response) => {
@@ -91,7 +105,10 @@ app.post("/withdraw", (request, response) => {
         type: "debit",
     };
 
+    customer.statement.push(operation);
+
     return response.status(201).send();
 });
+
 //startar a aplicação na porta  do parâmetro
 app.listen(3333);

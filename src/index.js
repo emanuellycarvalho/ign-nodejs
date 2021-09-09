@@ -80,6 +80,14 @@ app.get("/account", (request, response) => {
     return response.json(customer);
 })
 
+app.get("/balance", (request, response) => {
+    const { customer } = request;
+
+    const balance = getBalance(customer.statement);
+
+    return response.json(balance);
+})
+
 app.post("/deposit", (request, response) => {
     const { message, amount } = request.body;
     const { customer } = request;

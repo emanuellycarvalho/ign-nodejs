@@ -38,9 +38,27 @@ app.post("/account", (request, response) => {
     return response.status(201).send();
 });
 
-app.get("/account", verifyIfAccountExistsByCPF, (request, response) => {
+app.use(verifyIfAccountExistsByCPF);
+
+app.get("/statement", (request, response) => {
     const { customer } = request;
     return response.json(customer.statement);
+});
+
+app.post("/deposit", (request, response) => {
+    const { message, amount } = request.body;
+    const { customer } = request;
+
+    const operation = {
+        message,
+        amount,
+        created_at: new Date(),
+        type: "credit"
+    }
+
+    customer.statement.push(operation);;
+
+    return response.status(201).send();
 });
 
 //startar a aplicação na porta  do parâmetro

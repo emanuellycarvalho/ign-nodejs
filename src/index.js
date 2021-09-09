@@ -125,5 +125,13 @@ app.put("/account", (request, response) => {
     return response.status(201).send();
 });
 
+app.delete("/account", (request, response) => {
+    const { customer } = request;
+
+    customers.splice(customer, 1);
+
+    return response.status(200).json(customers);
+});
+
 //startar a aplicação na porta  do parâmetro
 app.listen(3333);

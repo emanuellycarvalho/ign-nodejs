@@ -1,10 +1,10 @@
 import { CategoryRepository } from "../../repositories/category/CategoryRepository";
-import { CreateCategoryController } from "./CreateCategoryController";
-import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
-import { ImportCategoryUseCase } from "./ImportCategoryUseCase";
-import { ImportCategoryController } from "./ImportCategoryController";
-import { ListCategoriesController } from "./ListCategoriesController";
-import { ListCategoriesUseCase } from "./ListCategoriesUseCase";
+import { CreateCategoryController } from "./create/CreateCategoryController";
+import { CreateCategoryUseCase } from "./create/CreateCategoryUseCase";
+import { ImportCategoryUseCase } from "./import/ImportCategoryUseCase";
+import { ImportCategoryController } from "./import/ImportCategoryController";
+import { ListCategoriesController } from "./list/ListCategoriesController";
+import { ListCategoriesUseCase } from "./list/ListCategoriesUseCase";
 
 // REPOSITORY
 const categoryRepository = CategoryRepository.getInstance();
@@ -24,3 +24,5 @@ export { listCategoriesController }
 // IMPORT
 const importCategoryUseCase = new ImportCategoryUseCase();
 const importCategoryController = new ImportCategoryController(importCategoryUseCase); 
+
+export { importCategoryController }

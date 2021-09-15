@@ -1,7 +1,7 @@
 import { Category } from "../models/Category";
-import { ICreateCategoryDTO } from "./ICategoriesRepository";
+import { ICreateCategoryDTO } from "./ICategoryRepository";
 
-class CategoriesRepository{
+class CategoryRepository{
 
     private categories: Category[] = [];
 
@@ -30,4 +30,4 @@ class CategoriesRepository{
     }
 }
 
-export { CategoriesRepository }
+export { CategoryRepository }

@@ -1,4 +1,4 @@
-import { v4 as uuid }from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 class Category {
 
@@ -14,7 +14,7 @@ class Category {
     //     }
     // }
 
-    onstructor(){
+    constructor(){
         if(!this.id){
             this.id = uuid();
             this.created_at = new Date();

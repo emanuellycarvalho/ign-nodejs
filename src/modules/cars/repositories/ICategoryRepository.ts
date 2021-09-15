@@ -5,10 +5,10 @@ interface ICreateCategoryDTO {
     description: string;
 }
 
-interface ICategoriesRepository{
+interface ICategoryRepository{
     create({ name, description }: ICreateCategoryDTO): void;
     list(): Category[];
     findByName(name: string): Category;
 }
 
-export { ICategoriesRepository, ICreateCategoryDTO }
+export { ICategoryRepository, ICreateCategoryDTO }

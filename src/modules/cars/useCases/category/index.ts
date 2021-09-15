@@ -5,7 +5,7 @@ import { ListCategoriesController } from "./ListCategoriesController";
 import { ListCategoriesUseCase } from "./ListCategoriesUseCase";
 
 // REPOSITORY
-const categoryRepository = new CategoryRepository();
+const categoryRepository = CategoryRepository.getInstance();
 
 // CREATE
 const createCategoryUseCase = new CreateCategoryUseCase(categoryRepository);

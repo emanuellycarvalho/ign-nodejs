@@ -22,7 +22,7 @@ const listCategoriesController = new ListCategoriesController(listCategoriesUseC
 export { listCategoriesController }
 
 // IMPORT
-const importCategoryUseCase = new ImportCategoryUseCase();
+const importCategoryUseCase = new ImportCategoryUseCase(categoryRepository);
 const importCategoryController = new ImportCategoryController(importCategoryUseCase); 
 
 export { importCategoryController }

@@ -1,16 +1,8 @@
 import express from 'express';
+import { cotegoriesRoutes } from './routes/categories.routes';
 
 const app = express();
 app.use(express.json());
-
-app.get("/", function(request, response){
-    return response.json({ message: "Autoreload worked" });
-});
-
-app.post("/course", (request, response) => {
-    // console.log(request.body);    [usaria p debugar]
-    const { name } = request.body;;
-    return response.json({ name });
-});
+app.use(cotegoriesRoutes);
 
 app.listen(3333, () => console.log("Server is running!"));

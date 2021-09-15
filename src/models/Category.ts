@@ -7,12 +7,19 @@ class Category {
     description: string;
     created_at: Date;
 
-    constructor(){
+    // constructor(name: string, description: string){
+    //     if(!this.id){
+    //         this.id = uuid();
+    //         this.created_at = new Date();
+    //     }
+    // }
+
+    onstructor(){
         if(!this.id){
             this.id = uuid();
+            this.created_at = new Date();
         }
     }
-
 } 
 
 export {  Category }

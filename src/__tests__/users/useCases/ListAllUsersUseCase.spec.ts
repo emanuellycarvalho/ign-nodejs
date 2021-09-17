@@ -1,7 +1,7 @@
 import { v4 } from "uuid";
 
-import { UsersRepository } from "../../../modules/users/repositories/implementations/UsersRepository";
-import { ListAllUsersUseCase } from "../../../modules/users/useCases/listAllUsers/ListAllUsersUseCase";
+import { UsersRepository } from "../../../modules/users/repositories/user/UsersRepository";
+import { ListAllUsersUseCase } from "../../../modules/users/useCases/list/ListAllUsersUseCase";
 
 describe("ListAllUsersUseCase", () => {
   let usersRepository: UsersRepository;

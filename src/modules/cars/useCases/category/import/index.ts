@@ -2,7 +2,7 @@ import { CategoryRepository } from "../../../repositories/category/CategoryRepos
 import { ImportCategoryUseCase } from "../import/ImportCategoryUseCase";
 import { ImportCategoryController } from "../import/ImportCategoryController";
 
-export default() => {
+export default(): ImportCategoryController => {
     const categoryRepository = new CategoryRepository();
 
     const importCategoryUseCase = new ImportCategoryUseCase(categoryRepository);

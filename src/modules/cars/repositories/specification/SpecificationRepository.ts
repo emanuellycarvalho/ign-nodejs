@@ -5,12 +5,12 @@ import { ICreateSpecificationDTO, ISpecificationRepository } from "./ISpecificat
 
 
 
-class SpecificationRepository{
+class SpecificationRepository implements ISpecificationRepository{
 
     private repository: Repository<Specification>;
     private static INSTANCE: SpecificationRepository;
 
-    private constructor(){
+    constructor(){
         this.repository = getRepository(Specification);
     }
     

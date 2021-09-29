@@ -12,7 +12,6 @@ class CategoryRepository{
     }
 
     async create({ name, description }: ICreateCategoryDTO): Promise<void> {
-        console.log("Repository, Create");
         const category = this.repository.create({
             description,
             name

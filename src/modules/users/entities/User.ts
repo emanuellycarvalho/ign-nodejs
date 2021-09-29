@@ -23,7 +23,7 @@ class User {
     driver_license: string;
 
     @Column()
-    admin: boolean;
+    admin?: boolean;
 
     @CreateDateColumn()
     created_at: Date;
@@ -31,6 +31,7 @@ class User {
     constructor(){
         if(!this.id){
             this.id = uuid();
+            this.admin = false;
         }
     }
  }

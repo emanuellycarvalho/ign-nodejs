@@ -1,11 +1,7 @@
 version: "3.9"
 
 services:
-<<<<<<< HEAD
   database: 
-=======
-  database: #ESSE É O NOME DO SERVICE QUE DEVE ESTAR NO ARQUIVO DE CRIAÇÃO DE CONEXÃO
->>>>>>> old-state
     image: postgres
     container_name: database
     restart: always

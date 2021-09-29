@@ -1,4 +1,3 @@
-// import { CategoriesRepository } from "../../repositories/CategoryRepository";
 import { ICategoryRepository } from "../../../repositories/category/ICategoryRepository";
 import {inject, injectable } from "tsyringe";
 
@@ -12,15 +11,15 @@ class CreateCategoryUseCase {
 
     constructor(
         @inject("CategoryRepository") 
-        private categoriesRepository: ICategoryRepository
+        private categoryRepository: ICategoryRepository
     ){}
 
     async execute({ name, description }: IRequest): Promise<void>{
-        if(await this.categoriesRepository.findByName(name)){
+        if(await this.categoryRepository.findByName(name)){
             throw new Error("Category already exists!");
         }
 
-        await this.categoriesRepository.create({ name, description });
+        await this.categoryRepository.create({ name, description });
     }
 
 }

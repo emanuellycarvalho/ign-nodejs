@@ -1,5 +1,6 @@
 import { ICategoryRepository } from "../../../repositories/category/ICategoryRepository";
 import {inject, injectable } from "tsyringe";
+import { v4 as uuid } from "uuid";
 
 interface IRequest{
     name: string;
@@ -20,8 +21,8 @@ class CreateCategoryUseCase {
         }
 
         await this.categoryRepository.create({
-             name, 
-             description 
+            name, 
+            description 
         });
     }
 

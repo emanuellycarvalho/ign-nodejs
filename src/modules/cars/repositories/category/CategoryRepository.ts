@@ -1,4 +1,5 @@
 import { getRepository, Repository } from "typeorm";
+import { v4 as uuid } from "uuid";
 import { Category } from "../../entities/Category";
 import { ICategoryRepository, ICreateCategoryDTO } from "./ICategoryRepository";
 
@@ -12,7 +13,7 @@ class CategoryRepository implements ICategoryRepository{
     }
 
     async create({ name, description }: ICreateCategoryDTO): Promise<void> {
-        const category = this.repository.create({
+            const category = this.repository.create({
             description,
             name
         });

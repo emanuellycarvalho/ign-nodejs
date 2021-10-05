@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3"
 
 services:
   database: 
@@ -8,16 +8,16 @@ services:
     ports: 
       - 5432:5432
     environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=ignite
+      - POSTGRES_USER=postgres
       - POSTGRES_DB=rentx
+      - POSTGRES_PASSWORD=ignite
     volumes:
       - ./data/:/data/postgres
  
 
   app:
     container_name: rentx
-    image: node:14-alpine
+    image: node:14
     working_dir: /usr/src/rentx
     restart: always
     command: bash -c "yarn && yarn dev"
@@ -25,8 +25,9 @@ services:
       - 3333:3333
       - 9229:9229 
     volumes: 
-      - ./src/:/usr/src/rentx/src/
-      - ./package.json:usr/src/rentx/package.json
+      - .:/usr/src/rentx
+      - /usr/src/rentx/node_modules
+      - ./package.json:/usr/src/rentx/package.json
     links: 
       - database
     depends_on:

@@ -6,10 +6,12 @@
     "author": "Emanuelly Carvalho <emanuellyvcarv@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "dev": "ts-node-dev --inspect --transpile-only  --trace-warnings --ignore-watch node_modules --respawn src/server.ts",
+        "dev": "ts-node-dev --transpile-only --trace-warnings --ignore-watch node_modules --respawn src/server.ts",
         "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
     },
     "dependencies": {
+        "bcrypt": "^5.0.1",
+        "bcryptjs": "^2.4.3",
         "csv-parse": "^4.16.3",
         "express": "^4.17.1",
         "multer": "^1.4.3",
@@ -20,6 +22,7 @@
         "uuid": "^8.3.2"
     },
     "devDependencies": {
+        "@types/bcrypt": "^5.0.0",
         "@types/express": "^4.17.13",
         "@types/multer": "^1.4.7",
         "@types/uuid": "^8.3.1",

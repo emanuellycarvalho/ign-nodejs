@@ -12,25 +12,22 @@ services:
       - POSTGRES_PASSWORD=ignite
       - POSTGRES_DB=rentx
     volumes:
-      - pgdata:/data/postgres
-
+      - ./data/:/data/postgres
+ 
 
   app:
-    build: .
     container_name: rentx
+    image: node:14-alpine
+    working_dir: /usr/src/rentx
     restart: always
+    command: bash -c "yarn && yarn dev"
     ports: 
       - 3333:3333
       - 9229:9229 
     volumes: 
-      - .:/usr/app
+      - ./src/:/usr/src/rentx/src/
+      - ./package.json:usr/src/rentx/package.json
     links: 
       - database
     depends_on:
       - database
-
-
-
-volumes:
-  pgdata:
-    driver: local

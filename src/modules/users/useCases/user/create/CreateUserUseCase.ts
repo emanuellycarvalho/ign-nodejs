@@ -1,6 +1,6 @@
+import 'reflect-metadata';
 import { hash } from "bcrypt";
 import { inject, injectable } from "tsyringe";
-import { User } from "../../../entities/User";
 import { IUserRepository } from "../../../repositories/IUserRepository";
 
 

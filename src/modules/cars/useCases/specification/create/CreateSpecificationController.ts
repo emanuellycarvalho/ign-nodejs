@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { CreateSpecificationUseCase } from "./CreateSpecificationUseCase";
 import { Request, Response } from "express";
 import { container } from "tsyringe";

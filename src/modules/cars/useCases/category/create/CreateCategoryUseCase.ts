@@ -1,6 +1,6 @@
-import { ICategoryRepository } from "../../../repositories/category/ICategoryRepository";
+import 'reflect-metadata';
 import {inject, injectable } from "tsyringe";
-import { v4 as uuid } from "uuid";
+import { ICategoryRepository } from "../../../repositories/category/ICategoryRepository";
 
 interface IRequest{
     name: string;

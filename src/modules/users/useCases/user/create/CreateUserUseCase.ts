@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import { hash } from "bcrypt";
 import { inject, injectable } from "tsyringe";
 import { IUserRepository } from "../../../repositories/IUserRepository";
+import { AppError } from '../../../../../errors/AppError';
 
 
 @injectable()
@@ -16,7 +17,7 @@ class CreateUserUseCase{
         const emailAlreadyExists = await this.userRepository.findByEmail(email);
 
         if(emailAlreadyExists){
-            throw new Error("Email already exists!");
+            throw new AppError("Email already exists!");
         }
 
         const cryptedPassword = await hash(password, 8);

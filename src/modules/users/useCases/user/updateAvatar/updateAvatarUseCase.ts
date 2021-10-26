@@ -9,19 +9,23 @@ interface IRequest {
 }
 
 @injectable()
-class updateAvatarUseCase { 
+class UpdateAvatarUseCase { 
 
         constructor(
-                @inject("UserRepositoy")
+                @inject("UserRepository")
                 private usersRepository: IUserRepository
         ){}
 
         async execute({ user_id, avatar_file}: IRequest): Promise<void>{
                 const user = await this.usersRepository.findById(user_id);
+                
+                if(!user){
+                        throw new AppError("User not found!", 404);
+                }
+
                 user.avatar = avatar_file;
 
-                
         }
 }
 
-export { updateAvatarUseCase }
+export { UpdateAvatarUseCase }

@@ -5,7 +5,7 @@ import { AppError } from "../errors/AppError";
 
 
 interface IPayload{
-    id: string;
+    sub: string;
 }
 
 export async function ensureAuthenticated(request: Request, response: Response, next: NextFunction){
@@ -15,9 +15,9 @@ export async function ensureAuthenticated(request: Request, response: Response, 
         throw new AppError("Missing token!", 401);
     }
 
-    const [, token] = headers.split(" ");
+    const [prefix, token] = headers.split(" ");
     try {
-        const { id } = verify(token, "md5hashgenerator") as IPayload;
+        const { sub: id } = verify(token, "md5hashgenerator") as IPayload;
 
         const usersRepository = new UserRepository();
         const user = usersRepository.findById(id);
@@ -25,6 +25,10 @@ export async function ensureAuthenticated(request: Request, response: Response, 
         if(!user){
             throw new AppError("User not found!", 401);
         }
+
+        request.user = {
+            id: id
+        };
 
         next();
 

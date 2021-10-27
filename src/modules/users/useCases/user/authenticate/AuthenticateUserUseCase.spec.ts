@@ -23,6 +23,7 @@ describe("Authenticate user", ()=> {
         }
 
         await createUserUseCase.execute(user);
+
         const result = await authenticateUserUseCase.execute({ 
             email: user.email, 
             password: user.password 
@@ -31,13 +32,32 @@ describe("Authenticate user", ()=> {
         expect(result).toHaveProperty("token");
     });
 
-    it("Should not be able to authenticate an unexistent user", () => {
+    it("Should not be able to authenticate an unexistent user", async () => {
         expect(async () => {
             await authenticateUserUseCase.execute({ 
-                email: "email", 
-                password: "password" 
+                email: "false@email.com", 
+                password: "1235" 
             })
         }).rejects.toBeInstanceOf(AppError);
+    });
+
+    it("Should not be able to authenticate with incorrect password", () => {
+        expect(async () => {
+            const user: ICreateUserDTO = {
+                name: "Test User",
+                email: "teste@gmail.com",
+                password: "1234",
+                driver_license: "000123"
+            }
+    
+            await createUserUseCase.execute(user);
+    
+            await authenticateUserUseCase.execute({ 
+                email: user.email, 
+                password: "1235" 
+            });
+        }).rejects.toBeInstanceOf(AppError);
+
     });
 
 });

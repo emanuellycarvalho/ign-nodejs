@@ -1,3 +1,4 @@
+import { AppError } from "../../../../../errors/AppError";
 import { UserRepositoryInMemory } from "../../../repositories/in-memory/UserRepositoryInMemory";
 import { CreateUserUseCase } from "../create/CreateUserUseCase";
 import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase";
@@ -13,7 +14,7 @@ describe("Authenticate user", ()=> {
         createUserUseCase = new CreateUserUseCase(userRepositoryIM);
     });
 
-    it("It should be possible to create a token (authenticate an user)", async () => {
+    it("Should be possible to create a token (authenticate an user)", async () => {
         const user: ICreateUserDTO = {
             name: "Test User",
             email: "teste@gmail.com",
@@ -28,6 +29,15 @@ describe("Authenticate user", ()=> {
         });
 
         expect(result).toHaveProperty("token");
+    });
+
+    it("Should not be able to authenticate an unexistent user", () => {
+        expect(async () => {
+            await authenticateUserUseCase.execute({ 
+                email: "email", 
+                password: "password" 
+            })
+        }).rejects.toBeInstanceOf(AppError);
     });
 
 });

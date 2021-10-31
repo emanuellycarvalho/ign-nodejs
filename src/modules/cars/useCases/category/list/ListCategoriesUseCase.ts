@@ -1,7 +1,8 @@
 import 'reflect-metadata';
 import { inject, injectable } from "tsyringe";
-import { Category } from "../../../entities/Category";
-import { ICategoryRepository } from "../../../repositories/category/ICategoryRepository";
+import { Category } from '@modules/cars/entities/Category';
+import { ICategoryRepository } from '@modules/cars/repositories/category/ICategoryRepository';
+
 
 @injectable()
 class ListCategoriesUseCase { 

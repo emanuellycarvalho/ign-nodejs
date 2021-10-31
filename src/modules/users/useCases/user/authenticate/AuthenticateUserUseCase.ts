@@ -2,8 +2,8 @@ import "reflect-metadata";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe"
-import { IUserRepository } from "../../../repositories/IUserRepository";
-import { AppError } from "../../../../../errors/AppError";
+import { IUserRepository  } from "@modules/users/repositories/IUserRepository";
+import { AppError } from "@errors/AppError"; 
 
 
 interface IRequest{

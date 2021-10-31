@@ -1,7 +1,7 @@
-import { UserRepository } from "../modules/users/repositories/UserRepository";
+import { UserRepository } from "@modules/users/repositories/UserRepository";
 import { Request, Response, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
-import { AppError } from "../errors/AppError";
+import { AppError } from "@errors/AppError";
 
 
 interface IPayload{

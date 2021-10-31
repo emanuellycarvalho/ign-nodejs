@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 import { inject, injectable } from "tsyringe";
-import { IUserRepository } from "../../../repositories/IUserRepository";
-import { AppError } from '../../../../../errors/AppError';
-import { deleteFile } from "../../../../../utils/file";
+import { deleteFile } from '@utils/file';
+import { AppError } from "@errors/AppError"; 
+import { IUserRepository } from '@modules/users/repositories/IUserRepository';
 
 interface IRequest {
         id: string;

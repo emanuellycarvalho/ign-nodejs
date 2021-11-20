@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { hash } from "bcrypt";
 import { inject, injectable } from "tsyringe";
 import { IUserRepository  } from '@modules/users/repositories/IUserRepository';
-import { AppError } from "@errors/AppError"; 
+import { AppError } from "@shared/errors/AppError"; 
 
 
 @injectable()

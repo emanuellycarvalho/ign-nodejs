@@ -1,6 +1,6 @@
 import { Router } from "express";
 import multer from "multer";
-import upload from "../config/upload";
+import upload from "../../../../config/upload";
 
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
 

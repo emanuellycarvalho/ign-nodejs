@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { inject, injectable } from "tsyringe";
-import { Category } from '@modules/cars/entities/Category';
-import { ICategoryRepository } from '@modules/cars/repositories/category/ICategoryRepository';
+import { Category } from '@modules/cars/infra/typeorm/entities/Category';
+import { ICategoryRepository } from '@modules/cars/repositories/ICategoryRepository';
 
 
 @injectable()

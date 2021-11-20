@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import fs from "fs";
 import csvParse from "csv-parse";
 import { inject, injectable } from "tsyringe";
-import { ICategoryRepository } from '@modules/cars/repositories/category/ICategoryRepository';
+import { ICategoryRepository } from '@modules/cars/repositories/ICategoryRepository';
 
 interface IImportCategory{
     name: string;

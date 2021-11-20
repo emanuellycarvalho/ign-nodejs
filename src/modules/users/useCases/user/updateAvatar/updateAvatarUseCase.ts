@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { inject, injectable } from "tsyringe";
 import { deleteFile } from '@utils/file';
-import { AppError } from "@errors/AppError"; 
+import { AppError } from "@shared/errors/AppError"; 
 import { IUserRepository } from '@modules/users/repositories/IUserRepository';
 
 interface IRequest {

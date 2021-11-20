@@ -1,9 +1,9 @@
 import express, { Request, Response, NextFunction } from 'express';
 import "express-async-errors";
-import { AppError } from '@errors/AppError';
-import { router } from './routes';
+import { AppError } from '@shared/errors/AppError';
+import { router } from './shared/infra/http/routes';
 
-import './database';
+import './typeorm';
 import './shared/container'
 
 const app = express();
